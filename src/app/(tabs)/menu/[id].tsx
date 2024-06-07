@@ -3,6 +3,8 @@ import { Stack, useLocalSearchParams } from "expo-router";
 import products from "@assets/data/products";
 import { defaultPizzaImage } from "@/components/ProductListItem";
 
+const sizes = ["S", "M", "L", "XL"];
+
 const ProductDetailsScreen = () => {
   const { id } = useLocalSearchParams();
 
@@ -19,6 +21,17 @@ const ProductDetailsScreen = () => {
         source={{ uri: product.image || defaultPizzaImage }}
         style={styles.image}
       />
+
+      <Text>Select size</Text>
+
+      <View style={styles.sizes}>
+        {sizes.map((size) => (
+          <View style={styles.size} key={size}>
+            <Text style={styles.sizeText}>{size}</Text>
+          </View>
+        ))}
+      </View>
+
       <Text style={styles.price}>${product.price}</Text>
     </View>
   );
@@ -36,10 +49,29 @@ const styles = StyleSheet.create({
   image: {
     width: "100%",
     aspectRatio: 1,
+    resizeMode: "contain",
   },
 
   price: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: "bold",
+  },
+
+  sizes: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    marginVertical: 10,
+  },
+  size: {
+    backgroundColor: "gainsboro",
+    width: 50,
+    aspectRatio: 1,
+    borderRadius: 25,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  sizeText: {
+    fontSize: 20,
+    fontWeight: "500",
   },
 });
