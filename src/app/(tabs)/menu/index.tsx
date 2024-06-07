@@ -1,4 +1,4 @@
-//27.44 of video in vlc
+//1.15.35 of video in vlc
 import { FlatList } from "react-native";
 import products from "@assets/data/products";
 import ProductListItem from "@components/ProductListItem";
