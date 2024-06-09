@@ -17,12 +17,9 @@ const ProductDetailsScreen = () => {
 
   const [selectedSize, setSelectedSize] = useState<PizzaSize>("M");
 
-  //console.log(selectedSize);
-
   const product = products.find((p) => p.id.toString() === id);
 
   const addToCart = () => {
-    // console.warn("Add to cart, size: ", selectedSize);
     if (!product) {
       return;
     }
@@ -43,7 +40,6 @@ const ProductDetailsScreen = () => {
       />
 
       <Text>Select size</Text>
-
       <View style={styles.sizes}>
         {sizes.map((size) => (
           <Pressable
