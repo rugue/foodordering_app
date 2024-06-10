@@ -98,7 +98,6 @@ const CreateProductScreen = () => {
       [
         {
           text: "Cancel",
-          style: "cancel",
         },
         { text: "Delete", style: "destructive", onPress: onDelete },
       ],
